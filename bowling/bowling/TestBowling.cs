@@ -16,9 +16,20 @@ namespace bowling
             Game g = new Game();
             for (int i = 0; i < 20; i++)
             {
-                g.SetPins(0);
+                g.SetPins(0,i);
             }
             Assert.That(g.GetFinalScore(), Is.EqualTo(0));
         }
+        [Test]
+        public void oneStrike()
+        {
+            Game g = new Game();
+            for (int i = 0; i < 20;i++ )
+            {
+                if (i == 10) g.SetPins(10,i);
+                else g.SetPins(0,i);
+            }
+             Assert.That(g.GetFinalScore(), Is.EqualTo(10));
+        } 
     }
 }

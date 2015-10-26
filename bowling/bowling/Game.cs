@@ -6,15 +6,25 @@ using System.Text;
 namespace bowling
 {
     class Game
-    {
-        internal void SetPins(int p)
+    {  
+        int []score=new int [20];
+        internal void SetPins(int p,int i)
         {
-            throw new NotImplementedException();
+            score[i] = p;
         }
-
         internal int GetFinalScore()
         {
-            throw new NotImplementedException();
-        }
+        
+            int sum=0;
+            for (int i = 0; i < 20; i+=2)
+            {
+                if (score[i] + score[i + 1] == 10)
+                {
+                    sum += 10;
+                }
+                else sum += (score[i] + score[i + 1]);
+            }
+            return sum;
+         }  
     }
 }
