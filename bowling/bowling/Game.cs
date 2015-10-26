@@ -19,12 +19,30 @@ namespace bowling
             for (int i = 0; i < 20; i+=2)
             {
                 if (score[i] + score[i + 1] == 10)
-                {
-                    sum += 10;
+                {  
+                    sum+=10;
+                    if (score[i] == 10)
+                        sum += Strike(i);
+                    else
+                        sum += score[i + 2];
                 }
                 else sum += (score[i] + score[i + 1]);
             }
             return sum;
-         }  
+         } 
+        int Strike(int i)
+        {
+            int ans=0;
+            for (int j = 0; j < 2; )
+            {
+                i++;
+                if(score[i]!=0)
+                {
+                    ans += score[i];
+                    j++;
+                }
+            }
+            return ans;
+        }
     }
 }
