@@ -16,7 +16,7 @@ namespace bowling
         {
         
             int sum=0;
-            for (int i = 0; i < 20; i+=2)
+            for (int i = 0; i < 18; i+=2)
             {
                 if (score[i] + score[i + 1] == 10)
                 {  
@@ -28,6 +28,7 @@ namespace bowling
                 }
                 else sum += (score[i] + score[i + 1]);
             }
+            sum += (score[18] + score[19]);
             return sum;
          } 
         int Strike(int i)

@@ -92,5 +92,48 @@ namespace bowling
             }
             Assert.That(g.GetFinalScore(), Is.EqualTo(49));
         }
+        [Test]
+        public void Turkey()
+        {
+            Game g = new Game();
+            for (int i = 0; i < 20; i++)
+            {
+                if (i == 10)
+                {
+                    g.SetPins(10, i);
+                    i += 1;
+                    g.SetPins(0, i);
+                }
+                else if (i == 12)
+                {
+                    g.SetPins(10, i);
+                    i += 1;
+                    g.SetPins(0, i);
+                }
+                else if (i == 14)
+                {
+                    g.SetPins(10, i);
+                    i += 1;
+                    g.SetPins(0, i);
+                }
+                else g.SetPins(1, i);
+            }
+            Assert.That(g.GetFinalScore(), Is.EqualTo(77));
+        }
+        [Test]
+        public void FinalStage()
+        {
+            Game g = new Game();
+            for (int i = 0; i < 20; i++)
+            {
+                if (i == 10)
+                {
+                    g.SetPins(10, i);
+                    i += 1;
+                }
+                else g.SetPins(1, i);
+            }
+            Assert.That(g.GetFinalScore(), Is.EqualTo(30));
+        }
     }
 }
